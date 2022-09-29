@@ -16,7 +16,7 @@ function contains(cell)
 
 const printCell = (cell, state) => 
 {
-  return contains.call(state,cell) ? "\u25a2": "\u25a3";
+  return contains.call(state,cell) ? "\u25A3" : "\u25A2";
 };
 
 const corners = (state = []) => 
@@ -96,7 +96,11 @@ const iterate = (state, iterations) =>
   return states;
 };
 
-const main = (pattern, iterations) => {};
+const main = (pattern, iterations) => 
+{
+  const results = iterate(startPatterns[pattern], iterations);
+  results.forEach(r => console.log(printCells(r)));
+};
 
 const startPatterns = {
     rpentomino: [
